@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flappy Krishnikka</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body{
+      margin:0;
+      padding:0;
+      background:#003300;
+      font-family:sans-serif;
+      text-align:center;
+    }
+    h1{
+      color:#fff;
+      margin:6px 0;
+    }
+    canvas{
+      background:transparent;
+      display:block;
+      margin:0 auto;
+    }
+    button{ cursor:pointer; }
+
+    /* START SCREEN */
+    #startScreen{
+      position:fixed;
+      inset:0;
+      background:#003300 url("frontbg.png") center center no-repeat;
+      background-size:cover;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      z-index:10;
+      gap:12px;
+    }
+    #titleText{
+      font-size:32px;
+      font-weight:bold;
+      color:#ffeb3b;
+      text-shadow:0 0 10px #00ff00;
+      margin-bottom:10px;
+    }
+    .mainBtn{
+      font-size:20px;
+      padding:10px 28px;
+      border-radius:8px;
+      border:none;
+      background:#00c853;
+      color:#fff;
+      font-weight:bold;
+      box-shadow:0 0 10px #00e676;
+    }
+    .mainBtn:active{ transform:scale(0.97); }
+    #hint{
+      color:#eee;
+      margin-top:4px;
+      font-size:14px;
+      text-shadow:0 0 4px #000;
+    }
+
+    /* STORE SCREEN */
+    #storeScreen{
+      position:fixed;
+      inset:0;
+      background:#003300 url("store.png") center center no-repeat;
+      background-size:cover;
+      display:none;
+      flex-direction:column;
+      align-items:center;
+      justify-content:flex-start;
+      padding-top:40px;
+      z-index:11;
+    }
+    #storeTitle{
+      font-size:26px;
+      font-weight:bold;
+      color:#ffeb3b;
+      border:2px solid #ffeb3b;
+      padding:8px 24px;
+      border-radius:10px;
+      display:inline-block;
+      margin-bottom:20px;
+      background:rgba(0,0,0,0.4);
+    }
+    #skinsRow{
+      display:flex;
+      gap:18px;
+      margin-top:10px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+    .skinCard{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      color:#fff;
+      width:90px;
+    }
+    .skinPreview{
+      width:70px;
+      height:70px;
+      border-radius:50%;
+      overflow:hidden;
+      border:3px solid #666;
+      margin-bottom:6px;
+      background:#222;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .skinPreview img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+    .skinName{
+      font-size:12px;
+      margin-bottom:4px;
+      text-align:center;
+    }
+    .selectBtn{
+      font-size:12px;
+      padding:4px 10px;
+      border-radius:6px;
+      border:none;
+      background:#0288d1;
+      color:#fff;
+    }
+    .selected{
+      border-color:#ffeb3b !important;
+      box-shadow:0 0 10px #ffeb3b;
+    }
+    #backBtn{
+      position:absolute;
+      top:12px;
+      left:12px;
+      font-size:14px;
+      padding:4px 10px;
+      border-radius:6px;
+      border:none;
+      background:#555;
+      color:#fff;
+    }
+
+    /* GAME OVER */
+    #gameOverOverlay{
+      position:fixed;
+      inset:0;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      background:rgba(0,0,0,0.45);
+      z-index:9;
+    }
+    #restartBtn,#homeBtn{
+      font-size:18px;
+      padding:8px 20px;
+      border-radius:8px;
+      border:none;
+      background:#00c853;
+      color:#fff;
+      font-weight:bold;
+      margin-top:10px;
+      margin-inline:4px;
+    }
+    #loseCanvas{
+      background:rgba(0,0,0,0.5);
+      border-radius:10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Flappy Krishnikka</h1>
+
+  <!-- START SCREEN -->
+  <div id="startScreen">
+    <div id="titleText">FLAPPY KRISHNIKKA</div>
+    <button id="startBtn" class="mainBtn">START</button>
+    <button id="storeBtn" class="mainBtn">STORE</button>
+    <div id="hint">Tap screen to jump</div>
+  </div>
+
+  <!-- STORE SCREEN -->
+  <div id="storeScreen">
+    <button id="backBtn">← Back</button>
+    <div id="storeTitle">STORE 🏬</div>
+
+    <div style="color:#fff;margin-top:6px;font-size:14px;">
+      Choose your Flappy Bhai skin
+    </div>
+
+    <div id="skinsRow">
+      <!-- KRISHNIKKA (default) -->
+      <div class="skinCard" data-skin="bhai.png">
+        <div class="skinPreview" id="preview-bhai">
+          <img src="bhai.png" alt="KRISHNIKKA">
+        </div>
+        <div class="skinName">KRISHNIKKA</div>
+        <button class="selectBtn">Select</button>
+      </div>
+
+      <!-- GOJO BHAI -->
+      <div class="skinCard" data-skin="bhai2.png">
+        <div class="skinPreview" id="preview-bhai2">
+          <img src="bhai2.png" alt="GOJO BHAI">
+        </div>
+        <div class="skinName">GOJO BHAI</div>
+        <button class="selectBtn">Select</button>
+      </div>
+
+      <!-- SUKUNA BHAI -->
+      <div class="skinCard" data-skin="bhai3.png">
+        <div class="skinPreview" id="preview-bhai3">
+          <img src="bhai3.png" alt="SUKUNA BHAI">
+        </div>
+        <div class="skinName">SUKUNA BHAI</div>
+        <button class="selectBtn">Select</button>
+      </div>
+
+      <!-- GOKU BHAI -->
+      <div class="skinCard" data-skin="bhai4.png">
+        <div class="skinPreview" id="preview-bhai4">
+          <img src="bhai4.png" alt="GOKU BHAI">
+        </div>
+        <div class="skinName">GOKU BHAI</div>
+        <button class="selectBtn">Select</button>
+      </div>
+
+      <!-- NARUTO BHAI -->
+      <div class="skinCard" data-skin="bhai5.png">
+        <div class="skinPreview" id="preview-bhai5">
+          <img src="bhai5.png" alt="NARUTO BHAI">
+        </div>
+        <div class="skinName">NARUTO BHAI</div>
+        <button class="selectBtn">Select</button>
+      </div>
+    </div>
+
+    <div style="color:#ffeb3b;margin-top:10px;font-size:13px;">
+      GOJO / SUKUNA / GOKU / NARUTO = HARD MODE 🥲
+    </div>
+
+    <div style="color:#aaa;margin-top:8px;font-size:13px;">
+      Default: bhai.png (KRISHNIKKA)
+    </div>
+  </div>
+
+  <!-- GAME OVER OVERLAY -->
+  <div id="gameOverOverlay">
+    <canvas id="loseCanvas" width="260" height="200"></canvas>
+    <div>
+      <button id="restartBtn">RESTART</button>
+      <button id="homeBtn">HOME</button>
+    </div>
+  </div>
+
+  <!-- MAIN GAME CANVAS -->
+  <canvas id="gameCanvas" width="360" height="640"></canvas>
+
+  <!-- BGM AUDIO -->
+  <audio id="bgm" src="bgm.mp3" loop></audio>
+
+  <script>
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+    const startScreen = document.getElementById("startScreen");
+    const startBtn = document.getElementById("startBtn");
+    const storeBtn = document.getElementById("storeBtn");
+    const storeScreen = document.getElementById("storeScreen");
+    const backBtn = document.getElementById("backBtn");
+    const gameOverOverlay = document.getElementById("gameOverOverlay");
+    const restartBtn = document.getElementById("restartBtn");
+    const homeBtn = document.getElementById("homeBtn");
+    const loseCanvas = document.getElementById("loseCanvas");
+    const loseCtx = loseCanvas.getContext("2d");
+    const bgm = document.getElementById("bgm");
+    bgm.volume = 0.3;
+
+    function resizeCanvas(){
+      const ratio = 640/360;
+      const w = Math.min(window.innerWidth,480);
+      const h = w*ratio;
+      canvas.width = w;
+      canvas.height = h;
+      WIDTH = canvas.width;
+      HEIGHT = canvas.height;
+    }
+    resizeCanvas();
+    window.addEventListener("resize",()=>{ resizeCanvas(); if(!gameStarted) return; resetGame(); });
+
+    let WIDTH = canvas.width;
+    let HEIGHT = canvas.height;
+
+    let selectedSkin = localStorage.getItem("flappySkin") || "bhai.png";
+
+    const birdImg = new Image();
+    birdImg.src = selectedSkin;
+    const pipeImg = new Image();
+    pipeImg.src = "pipe.png";
+    const loseImg = new Image();
+    loseImg.src = "lose.png";
+
+    const bg1 = new Image();
+    bg1.src = "bg1.png";
+    const bg2 = new Image();
+    bg2.src = "bg2.png";
+    let bgX1 = 0;
+    let bgX2 = 0;
+    const BG_SPEED = 0.7;
+
+    function resetBgPositions(){
+      bgX1 = 0;
+      bgX2 = canvas.width;
+    }
+
+    const GRAVITY = 0.28;
+    const JUMP    = -5.8;
+    const PIPE_SPEED  = 2.1;
+    const PIPE_GAP    = 230;
+    const PIPE_WIDTH  = 90;
+    const PIPE_SPACING = 260;
+
+    let bird = {
+      x: 70,
+      y: HEIGHT/2,
+      w: 60,
+      h: 60,
+      velocity: 0
+    };
+
+    let pipes = [];
+    let score = 0;
+    let gameOver = false;
+    let gameStarted = false;
+    let loopStarted = false;
+
+    function resetGame(){
+      WIDTH = canvas.width;
+      HEIGHT = canvas.height;
+      bird.y = HEIGHT/2;
+      bird.velocity = 0;
+      pipes = [];
+      score = 0;
+      gameOver = false;
+      resetBgPositions();
+
+      const startX = WIDTH + 150;
+      for(let i=0;i<3;i++){
+        addPipe(startX + i*PIPE_SPACING);
+      }
+    }
+
+    startBtn.onclick = ()=>{
+      startScreen.style.display="none";
+      resetGame();
+      gameStarted = true;
+      bgm.play();
+    };
+
+    storeBtn.onclick = ()=>{
+      storeScreen.style.display="flex";
+    };
+
+    backBtn.onclick = ()=>{
+      storeScreen.style.display="none";
+    };
+
+    restartBtn.onclick = ()=>{
+      gameOverOverlay.style.display="none";
+      resetGame();
+      gameStarted = true;
+      if(bgm.paused) bgm.play();
+    };
+
+    homeBtn.onclick = ()=>{
+      gameOverOverlay.style.display="none";
+      gameStarted = false;
+      resetGame();
+      startScreen.style.display="flex";
+    };
+
+    const skinCards = document.querySelectorAll(".skinCard");
+    function updateSelectedBorder(){
+      skinCards.forEach(card=>{
+        const skin = card.dataset.skin;
+        const preview = card.querySelector(".skinPreview");
+        if(skin === selectedSkin){
+          preview.classList.add("selected");
+        }else{
+          preview.classList.remove("selected");
+        }
+      });
+    }
+    updateSelectedBorder();
+
+    skinCards.forEach(card=>{
+      card.querySelector(".selectBtn").onclick = ()=>{
+        selectedSkin = card.dataset.skin;
+        localStorage.setItem("flappySkin", selectedSkin);
+        birdImg.src = selectedSkin;
+        bird.y = HEIGHT/2;
+        bird.velocity = 0;
+        updateSelectedBorder();
+      };
+    });
+
+    function jump(){
+      if(!gameStarted) return;
+      if(gameOver) return; // handled by restart button only
+      bird.velocity = JUMP;
+    }
+
+    canvas.addEventListener("touchstart",jump);
+    canvas.addEventListener("mousedown",jump);
+
+    function addPipe(xPos){
+      const margin = 70;
+      const minGapY = margin + PIPE_GAP/2;
+      const maxGapY = HEIGHT - margin - PIPE_GAP/2;
+      const gapY = minGapY + Math.random()*(maxGapY-minGapY);
+
+      pipes.push({
+        x: xPos,
+        gapCenter: gapY,
+        counted:false
+      });
+    }
+
+    function checkCollision(p){
+      const bx = bird.x, by = bird.y, bw = bird.w, bh = bird.h;
+      const topPipeBottom = p.gapCenter - PIPE_GAP/2;
+      const bottomPipeTop = p.gapCenter + PIPE_GAP/2;
+
+      const birdRect = {x:bx,y:by,w:bw,h:bh};
+      const topRect  = {x:p.x,y:0,w:PIPE_WIDTH,h:topPipeBottom};
+      const bottomRect={x:p.x,y:bottomPipeTop,w:PIPE_WIDTH,h:HEIGHT-bottomPipeTop};
+
+      function overlap(a,b){
+        return a.x < b.x+b.w && a.x+a.w > b.x &&
+               a.y < b.y+b.h && a.y+a.h > b.y;
+      }
+      if(overlap(birdRect,topRect)) return true;
+      if(overlap(birdRect,bottomRect)) return true;
+      if(by+bh>=HEIGHT || by<=0) return true;
+      return false;
+    }
+
+    function drawCircleImage(){
+      const cx = bird.x + bird.w/2;
+      const cy = bird.y + bird.h/2;
+      const r  = Math.min(bird.w,bird.h)/2;
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(cx,cy,r,0,Math.PI*2);
+      ctx.clip();
+      ctx.drawImage(birdImg,bird.x,bird.y,bird.w,bird.h);
+      ctx.restore();
+    }
+
+    function drawCircleFallback(){
+      const cx = bird.x + bird.w/2;
+      const cy = bird.y + bird.h/2;
+      const r  = Math.min(bird.w,bird.h)/2;
+      ctx.fillStyle="yellow";
+      ctx.beginPath();
+      ctx.arc(cx,cy,r,0,Math.PI*2);
+      ctx.fill();
+    }
+
+    function drawBg(){
+      if(!(bg1.complete && bg2.complete)) {
+        ctx.fillStyle="#003300";
+        ctx.fillRect(0,0,canvas.width,canvas.height);
+        return;
+      }
+      const h = canvas.height;
+      const w = canvas.width;
+
+      ctx.drawImage(bg1,0,0,bg1.width,bg1.height,bgX1,0,w,h);
+      ctx.drawImage(bg2,0,0,bg2.width,bg2.height,bgX2,0,w,h);
+
+      if(gameStarted && !gameOver){
+        bgX1 -= BG_SPEED;
+        bgX2 -= BG_SPEED;
+
+        if(bgX1 <= -w) bgX1 = bgX2 + w;
+        if(bgX2 <= -w) bgX2 = bgX1 + w;
+      }
+    }
+
+    function drawPipes(){
+      pipes.forEach(p=>{
+        const topPipeBottom = p.gapCenter - PIPE_GAP/2;
+        const bottomPipeTop = p.gapCenter + PIPE_GAP/2;
+
+        const imgH = pipeImg.naturalHeight || 400;
+        const imgW = pipeImg.naturalWidth  || 120;
+        const scale = PIPE_WIDTH / imgW;
+        const drawH = imgH * scale;
+
+        ctx.save();
+        ctx.translate(p.x + PIPE_WIDTH/2, topPipeBottom);
+        ctx.scale(1,-1);
+        ctx.drawImage(pipeImg,-PIPE_WIDTH/2,0,PIPE_WIDTH,drawH);
+        ctx.restore();
+
+        ctx.drawImage(pipeImg,p.x,bottomPipeTop,PIPE_WIDTH,drawH);
+      });
+    }
+
+    function showGameOver(){
+      gameOverOverlay.style.display="flex";
+      loseCtx.clearRect(0,0,loseCanvas.width,loseCanvas.height);
+      if(loseImg.complete && loseImg.naturalWidth>0){
+        const w = loseCanvas.width*0.9;
+        const h = w*(loseImg.naturalHeight/loseImg.naturalWidth);
+        const x = (loseCanvas.width-w)/2;
+        const y = (loseCanvas.height-h)/2;
+        loseCtx.drawImage(loseImg,x,y,w,h);
+      }else{
+        loseCtx.fillStyle="red";
+        loseCtx.font="28px Arial";
+        loseCtx.fillText("GAME OVER",30,100);
+      }
+    }
+
+    function loop(timestamp){
+      if(!lastTime) lastTime = timestamp;
+      lastTime = timestamp;
+
+      drawBg();
+
+      if(gameStarted && !gameOver){
+        bird.velocity += GRAVITY;
+        bird.y += bird.velocity;
+
+        for(let i=pipes.length-1;i>=0;i--){
+          const p = pipes[i];
+          p.x -= PIPE_SPEED;
+
+          if(!gameOver && checkCollision(p)){
+            gameOver = true;
+            showGameOver();
+            break; // stop processing pipes after collision
+          }
+
+          if(!p.counted && p.x + PIPE_WIDTH < bird.x){
+            score++;
+            p.counted = true;
+          }
+
+          if(p.x + PIPE_WIDTH < -PIPE_WIDTH){
+            pipes.splice(i,1);
+          }
+        }
+
+        const lastPipe = pipes[pipes.length-1];
+        if(lastPipe && lastPipe.x < WIDTH + PIPE_SPACING){
+          addPipe(lastPipe.x + PIPE_SPACING);
+        }
+      }
+
+      if(pipeImg.complete) drawPipes();
+      if(birdImg.complete) drawCircleImage(); else drawCircleFallback();
+
+      ctx.shadowColor="rgba(0,0,0,0.8)";
+      ctx.shadowBlur=4;
+      ctx.fillStyle="#fff";
+      ctx.font="bold 24px Arial";
+      ctx.fillText("Score: "+score,10,30);
+      ctx.shadowBlur=0;
+
+      requestAnimationFrame(loop);
+    }
+
+    birdImg.onload = ()=>{ if(!loopStarted){ loopStarted=true; requestAnimationFrame(loop); } };
+    birdImg.onerror = ()=>{ if(!loopStarted){ loopStarted=true; requestAnimationFrame(loop); } };
+  </script>
+</body>
+</html>
