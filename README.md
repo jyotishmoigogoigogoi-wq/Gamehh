@@ -1,346 +1,393 @@
 <div align="center">
 
-<img src="https://img.shields.io/badge/Python-3.9+-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
-<img src="https://img.shields.io/badge/Telegram-Bot-26A5E4?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram">
-<img src="https://img.shields.io/badge/PostgreSQL-Database-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL">
-<img src="https://img.shields.io/badge/FastAPI-Web-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI">
+<!-- Animated Header Banner -->
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,14,15,16,18&height=200&section=header&text=🎴%20Soul%20Collector&fontSize=60&fontColor=fff&animation=fadeIn&fontAlignY=35" width="100%">
 
-# 🎴 Soul Collector Bot
+<!-- Animated Typing Tagline -->
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=A78BFA&center=true&vCenter=true&width=600&lines=Collect+·+Trade+·+Dominate;The+Ultimate+Anime+Character+Bot;3000%2B+Active+Collectors;Weekly+Prizes+Every+Sunday!)](https://t.me/+EJLXtbm4Qa4wNzFl)
 
-### *Collect · Trade · Dominate*
+<!-- Status Badges -->
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.9%2B-3776AB?style=flat-square&logo=python&logoColor=white&labelColor=1a1a2e" alt="Python">
+  <img src="https://img.shields.io/badge/Telegram-Bot-26A5E4?style=flat-square&logo=telegram&logoColor=white&labelColor=1a1a2e" alt="Telegram">
+  <img src="https://img.shields.io/badge/PostgreSQL-14%2B-4169E1?style=flat-square&logo=postgresql&logoColor=white&labelColor=1a1a2e" alt="PostgreSQL">
+  <img src="https://img.shields.io/badge/FastAPI-Latest-009688?style=flat-square&logo=fastapi&logoColor=white&labelColor=1a1a2e" alt="FastAPI">
+  <img src="https://img.shields.io/badge/License-MIT-green?style=flat-square&labelColor=1a1a2e" alt="License">
+</p>
 
-**The Ultimate Anime Character Collection Experience on Telegram**
-
-[![Add to Telegram](https://img.shields.io/badge/➕_Add_to_Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/+EJLXtbm4Qa4wNzFl)
-[![Support Chat](https://img.shields.io/badge/💬_Support_Chat-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/kingchaos7)
-[![Support Channel](https://img.shields.io/badge/📢_Support_Channel-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/yourryori)
+<!-- Quick Action Buttons -->
+<p align="center">
+  <a href="https://t.me/+EJLXtbm4Qa4wNzFl">
+    <img src="https://img.shields.io/badge/🚀_Try_It_Now-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" alt="Try Now">
+  </a>
+  <a href="https://t.me/kingchaos7">
+    <img src="https://img.shields.io/badge/💬_Support_Chat-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" alt="Support">
+  </a>
+  <a href="https://t.me/yourryori">
+    <img src="https://img.shields.io/badge/📢_Updates_Channel-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" alt="Channel">
+  </a>
+</p>
 
 </div>
 
 ---
 
-## ✨ What is Soul Collector?
+<!-- Feature Showcase with Cards -->
+## 🌟 Why Soul Collector?
 
-**Soul Collector** is a feature-rich Telegram bot that brings the thrill of anime character collecting to your groups and DMs. With a sophisticated economy system, weighted rarity drops, weekly leaderboards with real prizes, and a beautiful web store interface — it's the most immersive character collection bot on Telegram.
+<div align="center">
 
-> 🌸 *"Anime souls drift through the void… Only the worthy may claim them."*
+| ⚡ **Lightning Fast** | 🎯 **Fair Drops** | 🏆 **Real Rewards** |
+|:---:|:---:|:---:|
+| Async-powered for instant responses | Weighted rarity system via SQL | Weekly prizes to Top 3 collectors |
+
+</div>
+
+> <p align="center"><i>"Anime souls drift through the void… Only the worthy may claim them."</i></p>
 
 ---
 
-## 🚀 Key Features
+## 🎮 Core Features
 
-### 💰 Economy System
-| Feature | Description | Cooldown |
-|---------|-------------|----------|
-| `/daily` | Claim 50-200 coins | 2 hours |
-| `/claim` | Claim a random character | 11 hours |
-| `/wallet` | View your coin balance & collection count | — |
+### 💰 Economy That Rewards Loyalty
 
-**Streak Bonuses:**
-- 🔥 7-day streak → **+3,000 coins bonus!**
-- 🏆 Own all characters → **+10,000 coins reward!**
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  /daily        Claim 50-200 coins every 2 hours                  │
+│  /claim        Get a random character every 11 hours             │
+│  /wallet       Check your global coin balance                    │
+├─────────────────────────────────────────────────────────────────┤
+│  🔥 7-Day Streak Bonus: +3,000 coins                            │
+│  🏆 Own All Characters: +10,000 coins reward!                   │
+└─────────────────────────────────────────────────────────────────┘
+```
 
-### 🎴 Collection System
-| Feature | Description |
-|---------|-------------|
-| `/vault` | Browse your collected characters with pagination |
-| `/market` | View all available characters |
-| `/buy <id>` | Purchase characters (multiple IDs supported) |
-| `/sell <id>` | Sell characters for 70% of base price |
-| `/search <name>` | Find characters by name or anime |
+### 🎴 10-Tier Rarity System
 
-### 🎭 Drop System (Groups Only)
-The heart-pounding drop system where characters appear hourly:
+<div align="center">
 
-1. **Drop Appears** — A mysterious character image is posted
-2. **Guess Fast** — Use `/guess <name>` to identify the character
-3. **Win Rewards** — Correct guessers win the character + coins!
-4. **Streak Bonus** — 3+ consecutive wins get special recognition
+| Tier | Rarity | Emoji | Drop Rate | Bonus |
+|:---:|:---|:---:|:---:|:---:|
+| 1 | Common | ⚪ | 40% | 50 coins |
+| 2 | Uncommon | 🟢 | 25% | 100 coins |
+| 3 | Elite | 🔵 | 15% | 200 coins |
+| 4 | Epic | 🟣 | 8% | 400 coins |
+| 5 | Waifu | 💖 | 4% | 500 coins |
+| 6 | Special Edition | ✨ | 3% | 700 coins |
+| 7 | Legendary | 🌟 | 2% | 1,000 coins |
+| 8 | Limited | ⏳ | 1.5% | 1,200 coins |
+| 9 | Event | 🎉 | 1% | 1,500 coins |
+| 10 | Mythic | 🔴 | 0.5% | 2,500 coins |
 
-**Rarity Rewards:**
-| Rarity | Emoji | Bonus Coins |
-|--------|-------|-------------|
-| Common | ⚪ | 50 |
-| Uncommon | 🟢 | 100 |
-| Elite | 🔵 | 200 |
-| Epic | 🟣 | 400 |
-| Waifu | 💖 | 500 |
-| Special Edition | ✨ | 700 |
-| Legendary | 🌟 | 1,000 |
-| Limited | ⏳ | 1,200 |
-| Event | 🎉 | 1,500 |
-| Mythic | 🔴 | 2,500 |
+</div>
 
-### 🏆 Weekly Leaderboard
-Every **Sunday at 12:00 UTC**, the bot automatically:
-- Posts the global leaderboard to all groups
-- Awards prizes to Top 3 collectors:
-  - 🥇 1st Place: **3,000 coins**
-  - 🥈 2nd Place: **2,000 coins**
-  - 🥉 3rd Place: **1,000 coins**
-- Sends DM notifications to winners
+### 🎭 Drop System — The Thrill of the Hunt
 
-### 📋 Tasks & Achievements
-| Task | Reward |
-|------|--------|
-| Refer a friend | 1,000 coins |
-| Friend joins via referral | 500 coins (for friend) |
-| Add bot to group (as admin) | 5,000 coins |
-| First purchase | 1,500 coins |
-| First guess win | 1,000 coins |
-| Collector (10 characters) | 2,500 coins |
-| 7-day streak | 3,000 coins |
-| Channel subscription tasks | Variable |
+<p align="center">
+  <img src="https://img.shields.io/badge/⏰_Drops_Every_Hour-Automatically-ff6b6b?style=for-the-badge" alt="Hourly Drops">
+</p>
 
-### 🌐 Web Store
-Beautiful, responsive web interface to browse all characters:
-- 🔍 Real-time search by name, anime, or ID
-- 🏷️ Filter by anime series
-- 📱 Mobile-optimized design
-- ✨ Glassmorphism UI with animations
+1. 🖼️ **Character Appears** — Mystery image posted & pinned
+2. 💭 **30-Min Hint** — Anime name revealed
+3. 🎯 **/guess <name>** — First correct guess wins!
+4. 🔥 **Streak Bonus** — 3+ wins = special recognition
+
+---
+
+## 🏆 Weekly Leaderboard Prizes
+
+<div align="center">
+
+| Rank | Medal | Prize |
+|:---:|:---:|:---:|
+| 🥇 1st | Gold | **3,000 coins** |
+| 🥈 2nd | Silver | **2,000 coins** |
+| 🥉 3rd | Bronze | **1,000 coins** |
+
+*Auto-posted every Sunday at 12:00 UTC to all groups*
+
+</div>
+
+---
+
+## 📋 Complete Command Reference
+
+<details>
+<summary><b>👤 User Commands</b> (Click to expand)</summary>
+
+| Command | Description | Usage |
+|:---|:---|:---|
+| `/start` | Begin your journey | `/start` |
+| `/help` | Show all commands | `/help` |
+| `/lang` | Switch EN/РУ | `/lang` |
+| `/daily` | Claim daily coins | `/daily` |
+| `/claim` | Claim character | `/claim` |
+| `/wallet` | Check balance | `/wallet` |
+| `/vault` | View collection | `/vault [page]` |
+| `/market` | Browse market | `/market` |
+| `/buy` | Purchase character(s) | `/buy <id> [id2 ...]` |
+| `/sell` | Sell character | `/sell <id>` |
+| `/search` | Find characters | `/search <name>` |
+
+</details>
+
+<details>
+<summary><b>🎮 Drop Commands (Groups)</b></summary>
+
+| Command | Description | Permission |
+|:---|:---|:---|
+| `/guess <name>` | Guess the character | Anyone |
+| `/enabledrops` | Enable hourly drops | Admin/Owner |
+| `/disabledrops` | Disable drops | Admin/Owner |
+
+</details>
+
+<details>
+<summary><b>🏆 Social & Tasks</b></summary>
+
+| Command | Description |
+|:---|:---|
+| `/leaderboard` | View top collectors |
+| `/tasks` | View & complete tasks |
+| `/refer` | Get referral link |
+
+**Task Rewards:**
+- Refer friend: 1,000 coins
+- Friend joins: 500 coins (for them)
+- Add bot to group: 5,000 coins
+- First buy: 1,500 coins
+- First guess win: 1,000 coins
+- Collector (10 chars): 2,500 coins
+
+</details>
+
+<details>
+<summary><b>👥 Group Admin</b></summary>
+
+| Command | Description | Cooldown |
+|:---|:---|:---:|
+| `/listadmins` | List human admins | — |
+| `/calladmins` | Ping all admins | 10 min |
+
+</details>
+
+<details>
+<summary><b>👑 Owner Commands</b></summary>
+
+| Command | Description |
+|:---|:---|
+| `/addcharacter` | Add new character (interactive) |
+| `/remove <id>` | Remove from market |
+| `/listchar` | List all characters |
+| `/addcoins` | Add coins (reply to user) |
+| `/removecoins` | Remove coins (reply) |
+| `/setstartvid` | Set start video |
+| `/setstartmsg` | Set custom start message |
+| `/setwelcomepic` | Set group welcome image |
+| `/broadcast` | Broadcast to all users & groups |
+| `/stats` | View bot statistics |
+| `/groupmembers <id>` | View group members |
+| `/addtask` | Add channel task |
+| `/removetask <id>` | Remove task |
+| `/listtasks` | List all tasks |
+| `/resetgrpdata` | ⚠️ Reset group data |
+
+</details>
 
 ---
 
 ## 🛠️ Tech Stack
 
-```
-┌─────────────────────────────────────────────────────────┐
-│  Python 3.9+  │  python-telegram-bot 20+  │  asyncpg   │
-├─────────────────────────────────────────────────────────┤
-│  FastAPI      │  Uvicorn                  │  APScheduler│
-├─────────────────────────────────────────────────────────┤
-│  PostgreSQL   │  Webhook/Polling Support  │  Bilingual │
-└─────────────────────────────────────────────────────────┘
-```
+<div align="center">
+
+<!-- Tech Stack Grid -->
+| Category | Technologies |
+|:---|:---|
+| **Core** | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white) ![Async](https://img.shields.io/badge/Async-Await-blueviolet?style=flat) |
+| **Bot Framework** | ![python-telegram-bot](https://img.shields.io/badge/python--telegram--bot-20%2B-26A5E4?style=flat&logo=telegram) |
+| **Database** | ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-14+-4169E1?style=flat&logo=postgresql&logoColor=white) ![asyncpg](https://img.shields.io/badge/asyncpg-Latest-green?style=flat) |
+| **Web Server** | ![FastAPI](https://img.shields.io/badge/FastAPI-Latest-009688?style=flat&logo=fastapi&logoColor=white) ![Uvicorn](https://img.shields.io/badge/Uvicorn-ASGI-purple?style=flat) |
+| **Scheduler** | ![APScheduler](https://img.shields.io/badge/APScheduler-3.10+-orange?style=flat) |
+| **Languages** | 🇬🇧 English · 🇷🇺 Русский |
+
+</div>
 
 ---
 
-## 📋 Available Commands
-
-### 👤 User Commands
-```
-/start        - Begin your collection journey
-/help         - View all available commands
-/lang         - Change language (English/Русский)
-/daily        - Claim daily coins
-/claim        - Claim a random character
-/wallet       - Check your balance
-/vault        - View your collection
-/market       - Browse the character market
-/buy <id>     - Purchase character(s)
-/sell <id>    - Sell a character
-/search <n>   - Search for characters
-```
-
-### 🎮 Drop Commands (Groups)
-```
-/guess <name>      - Guess the dropped character
-/enabledrops       - Enable hourly drops (admin/owner)
-/disabledrops      - Disable drops (admin/owner)
-```
-
-### 🏆 Social Commands
-```
-/leaderboard       - View top collectors
-/tasks             - View and complete tasks
-/refer             - Get your referral link
-```
-
-### 👥 Group Admin
-```
-/listadmins        - List human admins
-/calladmins        - Mention all admins (10min cooldown)
-```
-
-### 👑 Owner Commands
-```
-/addcharacter      - Add new character (interactive)
-/remove <id>       - Remove character from market
-/listchar          - List all characters
-/addcoins          - Add coins (reply to user)
-/removecoins       - Remove coins (reply to user)
-/setstartvid       - Set start video (reply)
-/setstartmsg       - Set custom start message
-/setwelcomepic     - Set group welcome image
-/broadcast         - Broadcast to all users & groups
-/stats             - View bot statistics
-/groupmembers <id> - View group members
-/addtask           - Add channel task
-/removetask <id>   - Remove task
-/listtasks         - List all tasks
-/resetgrpdata      - Reset group data (danger!)
-```
-
----
-
-## 🚀 Deployment Guide
+## 🚀 Quick Start
 
 ### Prerequisites
-- Python 3.9 or higher
+- Python 3.9+
 - PostgreSQL database
-- Telegram Bot Token (from [@BotFather](https://t.me/BotFather))
+- Telegram Bot Token from [@BotFather](https://t.me/BotFather)
 
-### Local Development
+### 1️⃣ Clone & Setup
 
 ```bash
-# 1. Clone repository
-git clone <your-repo-url>
-cd soul-collector-bot
+# Clone repository
+git clone https://github.com/yourusername/soul-collector.git
+cd soul-collector
 
-# 2. Create virtual environment
+# Create virtual environment
 python -m venv venv
 source venv/bin/activate  # Windows: venv\Scripts\activate
 
-# 3. Install dependencies
+# Install dependencies
 pip install -r requirements.txt
-
-# 4. Configure environment
-cp .env.example .env
-# Edit .env with your values
-
-# 5. Run the bot
-python main.py
 ```
 
-### Environment Variables
+### 2️⃣ Configure Environment
 
+```bash
+cp .env.example .env
+```
+
+Edit `.env`:
 ```env
 # Required
 BOT_TOKEN=your_bot_token_here
-DATABASE_URL=postgresql://user:pass@host:5432/dbname
-OWNER_ID=your_telegram_user_id
+DATABASE_URL=postgresql://user:pass@localhost:5432/soulcollector
+OWNER_ID=123456789
 
 # Optional
 OWNER_USERNAME=your_username
 SUPPORT_LINK=https://t.me/kingchaos7
-WEB_STORE_URL=https://your-vercel-app.vercel.app
-WEBHOOK_URL=                    # Leave empty for polling
+WEB_STORE_URL=https://your-store.vercel.app
+WEBHOOK_URL=              # Leave empty for polling mode
 PORT=8000
 ```
 
-### Render Deployment
+### 3️⃣ Run
 
-1. **Create Web Service** on [Render](https://render.com)
-2. **Connect** your GitHub repository
-3. **Set Environment Variables** in Render Dashboard
-4. **Deploy!**
-
-**Build Command:**
-```bash
-pip install -r requirements.txt
-```
-
-**Start Command:**
 ```bash
 python main.py
 ```
 
 ---
 
-## 📊 Database Schema
+## 📦 Deployment (Render)
 
-```sql
--- Core Tables
-groups              -- Group settings & welcome images
-users               -- User-group relationships
-global_users        -- Coin balances (global)
-group_user_data     -- Per-group cooldowns & streaks
-characters          -- Character definitions
-inventory           -- User collections
-started_users       -- Registered users
+<p align="center">
+  <img src="https://img.shields.io/badge/Render-Cloud-46E3B7?style=for-the-badge&logo=render&logoColor=white" alt="Render">
+</p>
 
--- Drop System
-drops_active        -- Groups with drops enabled
-current_drops       -- Active drop sessions
-drop_winners        -- Win streak tracking
+| Setting | Value |
+|:---|:---|
+| **Environment** | Python 3 |
+| **Build Command** | `pip install -r requirements.txt` |
+| **Start Command** | `python main.py` |
+| **Health Check** | `https://your-app.onrender.com/health` |
 
--- Tasks & Referrals
-tasks               -- Channel join tasks
-task_completions    -- Completed tasks
-referrals           -- Referral relationships
-group_adds          -- Bot add rewards
-bonus_tasks         -- Achievement tracking
-
--- Config
-bot_config          -- Start video/message
-rarity_ranking      -- Rarity tiers & emojis
-user_info           -- User cache for stats
-```
+**Required Environment Variables:**
+- `BOT_TOKEN`
+- `DATABASE_URL`
+- `OWNER_ID`
 
 ---
 
 ## 🎨 Web Store Preview
 
-The bot includes a stunning web interface for browsing characters:
+<div align="center">
 
 ```
-┌────────────────────────────────────────┐
-│     ✨ Anime Character Store           │
-│        Collect · Trade · Dominate      │
-├────────────────────────────────────────┤
-│  🔍 Search by name, anime, or ID...    │
-├────────────────────────────────────────┤
-│  🌸 All [42]  Naruto [8]  AOT [5]...   │
-├────────────────────────────────────────┤
-│  ┌────────────────────────────────┐    │
-│  │  [Character Image]             │    │
-│  │                                │    │
-│  │  💖 Mikasa Ackerman            │    │
-│  │  🎬 Attack on Titan            │    │
-│  │  💎 💖 Waifu  💰 5,000 coins   │    │
-│  │  🆔 #0042                      │    │
-│  └────────────────────────────────┘    │
-├────────────────────────────────────────┤
-│     ◀      5 / 42      ▶               │
-└────────────────────────────────────────┘
+╔═══════════════════════════════════════════════════════════════╗
+║                                                               ║
+║     ✨  ANIME CHARACTER STORE                                 ║
+║         Collect · Trade · Dominate                            ║
+║                                                               ║
+╠═══════════════════════════════════════════════════════════════╣
+║  🔍  Search by name, anime, or ID...                          ║
+╠═══════════════════════════════════════════════════════════════╣
+║  🌸 All [42]   Naruto [8]   AOT [5]   Demon Slayer [6]...     ║
+╠═══════════════════════════════════════════════════════════════╣
+║  ┌─────────────────────────────────────────────────────┐     ║
+║  │                                                     │     ║
+║  │              [ Character Image ]                    │     ║
+║  │                                                     │     ║
+║  │   💖 Mikasa Ackerman                                │     ║
+║  │   🎬 Attack on Titan                                │     ║
+║  │   💎 💖 Waifu      💰 5,000 coins                   │     ║
+║  │   🆔 #0042                                          │     ║
+║  │                                                     │     ║
+║  └─────────────────────────────────────────────────────┘     ║
+╠═══════════════════════════════════════════════════════════════╣
+║           ◀          5 / 42          ▶                        ║
+║                                                               ║
+╚═══════════════════════════════════════════════════════════════╝
+```
+
+**Features:**
+- 🔍 Real-time search
+- 🏷️ Anime filter tabs
+- 📱 Mobile-responsive
+- ✨ Glassmorphism design
+- ⚡ Zero-refresh navigation
+
+</div>
+
+---
+
+## 🗄️ Database Architecture
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                        CORE TABLES                              │
+├─────────────────────────────────────────────────────────────────┤
+│  groups           → Group settings, welcome images              │
+│  global_users     → Coin balances (global across groups)        │
+│  group_user_data  → Per-group cooldowns & streaks               │
+│  characters       → Character definitions with rarity tiers     │
+│  inventory        → User collections (user_id, group_id, char)  │
+│  started_users    → Registered bot users                        │
+├─────────────────────────────────────────────────────────────────┤
+│                      DROP SYSTEM                                │
+├─────────────────────────────────────────────────────────────────┤
+│  drops_active     → Groups with enabled drops                   │
+│  current_drops    → Active drop sessions (message_id, winner)   │
+│  drop_winners     → Win streak tracking per user/group          │
+├─────────────────────────────────────────────────────────────────┤
+│                    TASKS & REFERRALS                            │
+├─────────────────────────────────────────────────────────────────┤
+│  tasks            → Channel join tasks                          │
+│  task_completions → User task completion tracking               │
+│  referrals        → Referral relationships                      │
+│  group_adds       → Bot add rewards tracking                    │
+│  bonus_tasks      → Achievement tracking                        │
+└─────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## 🌍 Localization
+## 🔒 Security & Performance
 
-Fully bilingual support:
-- 🇬🇧 **English**
-- 🇷🇺 **Русский**
+<div align="center">
 
-Users can switch languages anytime with `/lang`
+| Security | Performance |
+|:---|:---|
+| ✅ Owner ID verification | ⚡ Async/await throughout |
+| ✅ Admin permission checks | ⚡ PostgreSQL connection pooling |
+| ✅ Rate limiting (10s guess CD) | ⚡ Weighted random via SQL |
+| ✅ Anti-spam (10min calladmins) | ⚡ APScheduler for jobs |
+| ✅ SQL injection protection | ⚡ Webhook mode support |
+| ✅ Safe broadcast handling | ⚡ Health check endpoint |
 
----
-
-## 🔒 Security Features
-
-- ✅ Owner-only commands with ID verification
-- ✅ Admin verification for group commands
-- ✅ Rate limiting on guesses (10s cooldown)
-- ✅ Anti-spam for `/calladmins` (10min cooldown)
-- ✅ Safe broadcast with error handling
-- ✅ SQL injection protection via parameterized queries
+</div>
 
 ---
 
-## 📈 Performance Optimizations
+## 🤝 Community & Support
 
-- ⚡ **Async/await** throughout
-- ⚡ **PostgreSQL connection pooling**
-- ⚡ **Weighted random selection** via SQL (no full table loads)
-- ⚡ **APScheduler** for efficient job scheduling
-- ⚡ **Webhook mode** for production (no polling overhead)
+<div align="center">
 
----
+| 💬 Support Chat | 📢 Updates Channel | 👤 Contact |
+|:---:|:---:|:---:|
+| [@kingchaos7](https://t.me/kingchaos7) | [@yourryori](https://t.me/yourryori) | [Join Group](https://t.me/+EJLXtbm4Qa4wNzFl) |
 
-## 🤝 Support & Community
-
-| Resource | Link |
-|----------|------|
-| 💬 Support Chat | [@kingchaos7](https://t.me/kingchaos7) |
-| 📢 Support Channel | [@yourryori](https://t.me/yourryori) |
-| 👤 Contact | [Telegram](https://t.me/+EJLXtbm4Qa4wNzFl) |
+</div>
 
 ---
 
-## 📝 License
-
-This project is licensed under the MIT License.
+## 📄 License
 
 ```
 MIT License
@@ -354,18 +401,24 @@ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND...
 ```
 
 ---
 
 <div align="center">
 
-### ⭐ Star this repo if you find it useful!
+### ⭐ Star this repository if you enjoy Soul Collector!
 
 **Made with 💜 by the Soul Collector Team**
 
-[![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/+EJLXtbm4Qa4wNzFl)
+<p align="center">
+  <a href="https://t.me/+EJLXtbm4Qa4wNzFl">
+    <img src="https://img.shields.io/badge/🎴_Join_Soul_Collector-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" alt="Join">
+  </a>
+</p>
+
+<!-- Animated Footer -->
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,14,15,16,18&height=100&section=footer" width="100%">
 
 </div>
